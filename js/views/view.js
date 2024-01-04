@@ -6,7 +6,6 @@ class WordView {
   render(data) {
     this.#data = data;
     const markup = this.#generateMarkup();
-    console.log(this.#data.synonyms);
 
     //rendering the detailed data
     this.#parentEl.insertAdjacentHTML("afterbegin", markup);

@@ -8,8 +8,6 @@ export const getData = async function (query) {
     );
     const data = await res.json();
 
-    console.log(data);
-
     if (!res.ok) throw new Error(`${data.message}  (${res.status})`);
 
     //creating the object to be exported to the controller
