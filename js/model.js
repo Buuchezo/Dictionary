@@ -1,5 +1,5 @@
 export const state = {
-  word: {},
+  word: [],
 };
 export const getData = async function (query) {
   try {

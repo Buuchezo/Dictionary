@@ -10,12 +10,13 @@ const play = document.getElementById("play-button");
 const sansSerif = document.querySelector(".sans-serif");
 const serif = document.querySelector(".serif");
 const mono = document.querySelector(".mono");
+const list = document.querySelector("ul");
 
 /////////////////////////////////////////////////////////////
 
 //close the down drop
 const controlFont = function (e) {
-  document.querySelector("ul").classList.remove("hidden");
+  list.classList.remove("hidden");
   if (e.target === sansSerif) {
     sansSerif.classList.add("active");
     serif.classList.remove("active");
@@ -35,6 +36,7 @@ const controlFont = function (e) {
     closeDropdown("Mono", "monospace");
   }
 };
+
 // toggling button
 const controlToggle = function () {
   body.classList.contains("dark") === true
@@ -60,7 +62,8 @@ const controlData = async function () {
         delete data[key];
       }
     }
-    console.log(model.state);
+    document.querySelector(".meaning__container").innerHTML = "";
+
     // 2). rendering the word meaning
     wordView.render(data);
 

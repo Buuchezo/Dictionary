@@ -2,9 +2,10 @@ class WordView {
   #parentEl = document.querySelector(".meaning__container");
   #data;
   #markup = "";
-
+  // responsible for bring the data in the view,js
   render(data) {
     this.#data = data;
+    this.#clearGeneratedMarkup();
     const markup = this.#generateMarkup();
 
     //rendering the detailed data
@@ -25,7 +26,7 @@ class WordView {
     //rendering the structure
     if (Object.hasOwn(this.#data, "noun"))
       this.#markup += `<div class="meaning__container">
-                              <p class="sideline">noun</p>
+                              <p class="sideline sideline-noun">noun</p>
                                </div>
                               <div class="definition">
                               <p>Meaning</p>
@@ -47,7 +48,7 @@ class WordView {
                             </div>`;
     if (Object.hasOwn(this.#data, "verb"))
       this.#markup += `  <div class="meaning__container">
-                              <p class="sideline">verb</p>
+                              <p class="sideline sideline-verb">verb</p>
                             </div>
                             <div class="definition">
                               <p>Meaning</p>
@@ -75,7 +76,7 @@ class WordView {
 
     if (Object.hasOwn(this.#data, "adverb"))
       this.#markup += `<div class="meaning__container">
-                              <p class="sideline">adverb</p>
+                              <p class="sideline sideline-adverb">adverb</p>
                             </div>
                             <div class="definition">
                               <p>Meaning</p>
@@ -89,7 +90,7 @@ class WordView {
                           `;
     if (Object.hasOwn(this.#data, "interjection"))
       this.#markup += `<div class="meaning__container">
-                              <p class="sideline">interjection</p>
+                              <p class="sideline sideline-interjection">interjection</p>
                             </div>
                             <div class="definition">
                               <p>Meaning</p>
@@ -107,13 +108,13 @@ class WordView {
   <p id="footer-text">
     Source
     <a href="https://en.wiktionary.org/wiki/keyboard" target="_blank"
-      >${this.#data.sourceUrl.slice(0, 2)}</a
+      >${this.#data.sourceUrl.slice(0, 1)}</a
     >
   </p>
 </div>`;
     return this.#markup;
   }
-
+  //generating the detailed markup
   #generatedSelectedmarkup(data, position) {
     data?.forEach((element) => {
       const html = `<li>${element.definition}</li>`;
@@ -124,6 +125,10 @@ class WordView {
   }
   addHandlerRender(handler) {
     handler();
+  }
+  //clearing the markup before render
+  #clearGeneratedMarkup() {
+    this.#markup = "";
   }
 }
 

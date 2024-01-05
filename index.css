@@ -118,8 +118,11 @@ option {
   width: 80%;
   margin-right: 1rem;
 }
+.dark .font-text {
+  color: var(--color-searchBg);
+}
 
-.sideline:after {
+/*.sideline:after {
   content: " ";
   height: 1px;
   width: 60%;
@@ -128,11 +131,61 @@ option {
   position: relative;
   top: -1rem;
   right: -11rem;
+}*/
+.sideline-noun:after {
+  content: " ";
+  height: 1px;
+  width: 67%;
+  background: #e9e9e9;
+  display: block;
+  position: relative;
+  top: -1rem;
+  right: -8rem;
+}
+.sideline-verb:after {
+  content: " ";
+  height: 1px;
+  width: 67%;
+  background: #e9e9e9;
+  display: block;
+  position: relative;
+  top: -1rem;
+  right: -8rem;
+}
+.sideline-adverb:after {
+  content: " ";
+  height: 1px;
+  width: 60%;
+  background: #e9e9e9;
+  display: block;
+  position: relative;
+  top: -1rem;
+  right: -10rem;
+}
+.sideline-adjective:after {
+  content: " ";
+  height: 1px;
+  width: 55%;
+  background: #e9e9e9;
+  display: block;
+  position: relative;
+  top: -1rem;
+  right: -12rem;
+}
+.sideline-interjection:after {
+  content: " ";
+  height: 1px;
+  width: 48%;
+  background: #e9e9e9;
+  display: block;
+  position: relative;
+  top: -1rem;
+  right: -14rem;
 }
 .sideline-footer:after {
   content: " ";
   height: 1px;
-  width: 105%;
+  width: 90%;
   background: #e9e9e9;
   display: block;
   position: relative;
@@ -330,6 +383,9 @@ li {
   display: inline;
   color: var(--color-text);
 }
+.dark #footer-text {
+  color: var(--color-searchBg);
+}
 .definition {
   margin: 2rem 0;
 }
@@ -382,8 +438,65 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-  .sideline-adjective {
-    width: 50%;
+  .sideline-noun:after {
+    content: " ";
+    height: 1px;
+    width: 85%;
+    background: #e9e9e9;
+    display: block;
+    position: relative;
+    top: -1rem;
+    right: -8rem;
+  }
+  .sideline-verb:after {
+    content: " ";
+    height: 1px;
+    width: 85%;
+    background: #e9e9e9;
+    display: block;
+    position: relative;
+    top: -1rem;
+    right: -8rem;
+  }
+  .sideline-adverb:after {
+    content: " ";
+    height: 1px;
+    width: 85%;
+    background: #e9e9e9;
+    display: block;
+    position: relative;
+    top: -1rem;
+    right: -10rem;
+  }
+  .sideline-adjective:after {
+    content: " ";
+    height: 1px;
+    width: 80%;
+    background: #e9e9e9;
+    display: block;
+    position: relative;
+    top: -1rem;
+    right: -12rem;
+  }
+  .sideline-interjection:after {
+    content: " ";
+    height: 1px;
+    width: 80%;
+    background: #e9e9e9;
+    display: block;
+    position: relative;
+    top: -1rem;
+    right: -14rem;
+  }
+  .sideline-footer:after {
+    content: " ";
+    height: 1px;
+    width: 90%;
+    background: #e9e9e9;
+    display: block;
+    position: relative;
+    top: -1rem;
+    right: -2.3rem;
   }
   .search__container {
     width: 95%;
@@ -402,9 +515,7 @@ a {
   .line {
     margin-left: 4rem;
   }
-  .sideline:after {
-    width: 65rem;
-  }
+
   .sideline-footer:after {
     width: 95%;
   }
