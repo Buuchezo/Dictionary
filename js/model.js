@@ -6,9 +6,10 @@ export const getData = async function (query) {
     const res = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${query}`
     );
+    console.log(res);
     const data = await res.json();
-
-    if (!res.ok) throw new Error(`${data.message}  (${res.status})`);
+    console.log(data);
+    if (!res.ok) throw new Error(`${data.message}`);
 
     //creating the object to be exported to the controller
     state.word = {
@@ -33,14 +34,15 @@ export const getData = async function (query) {
 
       audio: data[0].phonetics
         .filter((el) => Object.hasOwn(el, "audio"))
-        .filter((el) => el.audio !== "")[0].audio,
+        .filter((el) => el.audio !== "")[0]?.audio,
 
-      synonyms: data[0].meanings.filter((el) => el.synonyms !== "")[0].synonyms,
+      synonyms: data[0].meanings.filter((el) => el.synonyms !== "")[0]
+        ?.synonyms,
 
-      sourceUrl: data[0].sourceUrls,
+      sourceUrl: data[0]?.sourceUrls,
 
-      phonetic: data[0].phonetics.filter((el) => Object.hasOwn(el, "text"))[0]
-        .text,
+      phonetic: data[0]?.phonetics.filter((el) => Object.hasOwn(el, "text"))[0]
+        ?.text,
 
       nounExample: data[0].meanings
         .filter((el) => el.partOfSpeech === "noun")[0]
@@ -62,7 +64,8 @@ export const getData = async function (query) {
         .filter((el) => el.partOfSpeech === "interjection")[0]
         ?.definitions.filter((el) => el?.example)[0]?.example,
     };
+    console.log(state.word);
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };

@@ -2,10 +2,11 @@ class WordView {
   #parentEl = document.querySelector(".meaning__container");
   #data;
   #markup = "";
+  #errorMsg = `errrrrrrror`;
   // responsible for bring the data in the view,js
   render(data) {
     this.#data = data;
-    this.#clearGeneratedMarkup();
+    this.clearGeneratedMarkup();
     const markup = this.#generateMarkup();
 
     //rendering the detailed data
@@ -33,7 +34,11 @@ class WordView {
                               <ul class="noun-list">
                               </ul>
                               <div class="synonyms-container">
-                                <p class="synonym">Synonyms</p>
+                                <p class="synonym">${
+                                  this.#data.synonyms.length > 1
+                                    ? "Synonyms"
+                                    : "Synonym"
+                                }</p>
                                 <p class="synonym synonym-example">
                                   <span><strong>${
                                     this.#data.synonyms.length === 0
@@ -127,8 +132,25 @@ class WordView {
     handler();
   }
   //clearing the markup before render
-  #clearGeneratedMarkup() {
+  clearGeneratedMarkup() {
     this.#markup = "";
+  }
+
+  renderError(message = this.#errorMsg) {
+    this.#markup = `<div class="meaning__container">
+                              <p class="sideline ">ERROR</p>
+                            </div>
+                            <div class="definition">
+                              <p>${message}</p>
+                              <ul class="interjection-list">
+                              </ul>
+                            </div>
+                            <p id="example">
+                        
+                               </p>
+                            <div class="line"></div>
+                          `;
+    return this.#markup;
   }
 }
 

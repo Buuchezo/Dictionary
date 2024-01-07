@@ -11,6 +11,8 @@ const sansSerif = document.querySelector(".sans-serif");
 const serif = document.querySelector(".serif");
 const mono = document.querySelector(".mono");
 const list = document.querySelector("ul");
+const errorMsg =
+  "Sorry pal, we couldn't find definitions for the word you were looking for. Please check the spelling and try again";
 
 /////////////////////////////////////////////////////////////
 
@@ -51,29 +53,42 @@ const controlData = async function () {
     const query = searchView.getQuery();
     if (!query) return;
     //2). loading the word meaning
-    setTimeout(
+    /*setTimeout(
       () => document.querySelector(".item2").classList.remove("hidden"),
       400
-    );
+    );*/
     await model.getData(query);
     let data = model.state.word;
+
     for (let key in data) {
       if (data[key] === undefined) {
         delete data[key];
+        if (Object.hasOwn(data, "audio") === false) {
+          document.querySelector(".item2").classList.add("hidden");
+        } else {
+          document.querySelector(".item2").classList.remove("hidden");
+        }
       }
     }
+    console.log(data.audio);
+
     document.querySelector(".meaning__container").innerHTML = "";
 
     // 2). rendering the word meaning
     wordView.render(data);
-
+    wordView.renderError();
+    document.querySelector(".meaning__container").classList.remove("error");
     //3) play audio
     play.addEventListener("click", function (e) {
       let audio = new Audio(`${model.state.word.audio}`);
       audio.play();
     });
   } catch (err) {
-    console.error(err);
+    document.querySelector(".meaning__container").classList.add("error");
+    document.querySelector(".item2").classList.add("hidden"),
+      (document.querySelector(".meaning__container").innerHTML = `${errorMsg}`);
+    document.querySelector(".search__result").innerHTML = ``;
+    document.querySelector(".search__result-meaning").innerHTML = ``;
   }
 };
 
