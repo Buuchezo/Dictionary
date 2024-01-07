@@ -13,6 +13,20 @@ html {
   --color-dark: #050505;
 }
 
+.error {
+  text-align: center;
+  font-size: large;
+  padding: 5rem;
+  font-weight: 600;
+  background-image: url("./assets/images/circle-exclamation-solid.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 6%;
+  background-size: 10%;
+}
+section {
+  padding: 2rem;
+}
+
 /*light*/
 body {
   font-family: sans-serif;
@@ -204,7 +218,7 @@ input[type="checkbox"] {
   width: 70%;
   background-image: url("./assets/images/icon-arrow-down.svg");
   background-repeat: no-repeat;
-  background-position: 80% 50%;
+  background-position: 90% 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -219,7 +233,7 @@ input[type="checkbox"] {
 .select {
   position: relative;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: var(--color-heading);
 }
 .menu {
@@ -310,11 +324,13 @@ input[type="text"] {
   padding-left: 1rem;
   font-size: 2rem;
   font-weight: 500;
+  border-radius: 15px;
 }
 
 input[type="text"]::placeholder {
   font-weight: 600;
 }
+
 .submit__btn {
   border: transparent;
   background-color: transparent;
@@ -329,7 +345,7 @@ input[type="text"]::placeholder {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 2rem;
+
   align-items: center;
 }
 
@@ -351,7 +367,7 @@ input[type="text"]::placeholder {
 }
 .meaning__container p {
   display: inline;
-  padding: 2rem;
+
   font-size: 2rem;
   font-weight: 600;
 }
@@ -375,7 +391,7 @@ ul li:before {
 
 li {
   padding: 1rem 2rem 1rem 2rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 #footer-text {
   font-size: 1.2rem;
@@ -387,7 +403,7 @@ li {
   color: var(--color-searchBg);
 }
 .definition {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .definition p {
@@ -411,9 +427,10 @@ span {
 
 #example {
   font-size: 1rem;
-  padding-left: 4rem;
+
   color: var(--color-define);
 }
+
 .underline {
   max-width: 100%;
 }
@@ -561,5 +578,15 @@ a {
   }
   .logo {
     width: 40%;
+  }
+  .error {
+    text-align: center;
+    font-size: large;
+    padding: 9rem;
+    font-weight: 600;
+    background-image: url("./assets/images/circle-exclamation-solid.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 1%;
+    background-size: 10%;
   }
 }
