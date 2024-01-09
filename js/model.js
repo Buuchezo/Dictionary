@@ -6,9 +6,9 @@ export const getData = async function (query) {
     const res = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${query}`
     );
-    console.log(res);
+
     const data = await res.json();
-    console.log(data);
+
     if (!res.ok) throw new Error(`${data.message}`);
 
     //creating the object to be exported to the controller
@@ -64,7 +64,6 @@ export const getData = async function (query) {
         .filter((el) => el.partOfSpeech === "interjection")[0]
         ?.definitions.filter((el) => el?.example)[0]?.example,
     };
-    console.log(state.word);
   } catch (err) {
     throw err;
   }

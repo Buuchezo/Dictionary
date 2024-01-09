@@ -2,7 +2,6 @@ class WordView {
   #parentEl = document.querySelector(".meaning__container");
   #data;
   #markup = "";
-  #errorMsg = `errrrrrrror`;
   // responsible for bring the data in the view,js
   render(data) {
     this.#data = data;
@@ -134,23 +133,6 @@ class WordView {
   //clearing the markup before render
   clearGeneratedMarkup() {
     this.#markup = "";
-  }
-
-  renderError(message = this.#errorMsg) {
-    this.#markup = `<div class="meaning__container">
-                              <p class="sideline ">ERROR</p>
-                            </div>
-                            <div class="definition">
-                              <p>${message}</p>
-                              <ul class="interjection-list">
-                              </ul>
-                            </div>
-                            <p id="example">
-                        
-                               </p>
-                            <div class="line"></div>
-                          `;
-    return this.#markup;
   }
 }
 

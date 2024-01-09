@@ -70,7 +70,6 @@ const controlData = async function () {
         }
       }
     }
-    console.log(data.audio);
 
     document.querySelector(".meaning__container").innerHTML = "";
 
