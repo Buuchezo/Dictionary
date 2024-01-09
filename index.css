@@ -234,6 +234,7 @@ input[type="checkbox"] {
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   font-weight: 600;
+  z-index: 99;
 }
 
 .hidden {
@@ -344,6 +345,10 @@ input[type="text"]::placeholder {
 .error__heading {
   font-size: x-large;
   color: var(--color-heading);
+}
+
+.dark .error__heading {
+  color: var(--color-secondary);
 }
 #error__text {
   font-weight: 400;
