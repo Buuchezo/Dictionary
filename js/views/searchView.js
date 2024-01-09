@@ -1,5 +1,5 @@
 class SearchView {
-  #parentEl = document.querySelector(".search__container");
+  #parentEl = document.querySelector("form");
   //getting the value fro the input
   getQuery() {
     const query = this.#parentEl.querySelector(".search__field").value;
@@ -9,15 +9,24 @@ class SearchView {
   //submiting the value
   addHandlerSearch(handler) {
     this.#parentEl.addEventListener("submit", function (e) {
-      e.preventDefault();
       if (
         document.querySelector(".search__field").value === "" ||
         document.querySelector(".search__field") === null
       ) {
-        document.querySelector(".search__field").setAttribute("required", "");
-        document.querySelector(".search__container").style.background =
-          "rgba(255, 0, 0,0.2)";
-      } 
+        document.querySelector(".meaning__container").innerHTML = ``;
+        document.querySelector("form").classList.add("search--error");
+        document.querySelector(".error__message").innerHTML =
+          "Whoops, can´t be empty...";
+        document.querySelector(".search__result").innerHTML = ``;
+        document.querySelector(".search__result-meaning").innerHTML = ``;
+        document.querySelector(".item2").classList.add("hidden");
+        document.querySelector(".meaning__container").classList.remove("error");
+      } else {
+        document.querySelector("form").classList.remove("search--error");
+        document.querySelector(".error__message").innerHTML = "";
+      }
+
+      e.preventDefault();
       handler();
     });
   }

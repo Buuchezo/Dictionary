@@ -52,11 +52,7 @@ const controlData = async function () {
     //1.) getting the query
     const query = searchView.getQuery();
     if (!query) return;
-    //2). loading the word meaning
-    /*setTimeout(
-      () => document.querySelector(".item2").classList.remove("hidden"),
-      400
-    );*/
+
     await model.getData(query);
     let data = model.state.word;
 
