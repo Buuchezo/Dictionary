@@ -75,7 +75,7 @@ const controlData = async function () {
 
     // 2). rendering the word meaning
     wordView.render(data);
-    wordView.renderError();
+
     document.querySelector(".meaning__container").classList.remove("error");
     //3) play audio
     play.addEventListener("click", function (e) {

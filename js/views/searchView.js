@@ -17,11 +17,7 @@ class SearchView {
         document.querySelector(".search__field").setAttribute("required", "");
         document.querySelector(".search__container").style.background =
           "rgba(255, 0, 0,0.2)";
-      } else {
-        document.querySelector(".search__container").style.border = "none";
-        document.querySelector(".search__container").style.backgroundColor =
-          "#f4f4f4";
-      }
+      } 
       handler();
     });
   }
