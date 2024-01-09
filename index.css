@@ -13,16 +13,6 @@ html {
   --color-dark: #050505;
 }
 
-.error {
-  text-align: center;
-  font-size: large;
-  padding: 5rem;
-  font-weight: 600;
-  background-image: url("./assets/images/circle-exclamation-solid.svg");
-  background-repeat: no-repeat;
-  background-position: 50% 6%;
-  background-size: 10%;
-}
 section {
   padding: 2rem;
 }
@@ -278,7 +268,7 @@ input[type="checkbox"] {
   color: var(--color-primary);
 }
 .button {
-  background-color: var(--color-primary);
+  background-color: var(--color-define);
   width: 52px;
   height: 24px;
   border-radius: 100px;
@@ -336,6 +326,28 @@ input[type="text"]::placeholder {
   border: 1px solid var(--color-primary);
   cursor: pointer;
 }
+.error {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.error img {
+  width: 10rem;
+}
+
+.error span {
+  font-weight: 700;
+}
+
+.error__heading {
+  font-size: x-large;
+  color: var(--color-heading);
+}
+#error__text {
+  font-weight: 400;
+}
 .error__message {
   position: absolute;
   top: 3rem;
@@ -345,6 +357,16 @@ input[type="text"]::placeholder {
 
 .search--error {
   border: 1px solid var(--color-error);
+}
+
+#play-button:hover {
+  content: url("./assets/images/Group 4.svg");
+}
+
+#emoji {
+  font-size: 10rem;
+  padding-bottom: 2rem;
+  margin: 0;
 }
 
 .submit__btn {
@@ -424,8 +446,8 @@ li {
 
 .definition p {
   padding-left: 2.5rem;
-  color: var(--color-text);
-  font-size: 1.8rem;
+  color: var(--color-define);
+  font-size: 1.6rem;
 }
 .dark .definition p {
   color: var(--color-searchBg);
@@ -594,15 +616,5 @@ a {
   }
   .logo {
     width: 40%;
-  }
-  .error {
-    text-align: center;
-    font-size: large;
-    padding: 9rem;
-    font-weight: 600;
-    background-image: url("./assets/images/circle-exclamation-solid.svg");
-    background-repeat: no-repeat;
-    background-position: 50% 1%;
-    background-size: 10%;
   }
 }

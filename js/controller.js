@@ -11,8 +11,7 @@ const sansSerif = document.querySelector(".sans-serif");
 const serif = document.querySelector(".serif");
 const mono = document.querySelector(".mono");
 const list = document.querySelector("ul");
-const errorMsg =
-  "Sorry pal, we couldn't find definitions for the word you were looking for. Please check the spelling and try again";
+const img = document.createElement("img");
 
 /////////////////////////////////////////////////////////////
 
@@ -81,7 +80,18 @@ const controlData = async function () {
   } catch (err) {
     document.querySelector(".meaning__container").classList.add("error");
     document.querySelector(".item2").classList.add("hidden"),
-      (document.querySelector(".meaning__container").innerHTML = `${errorMsg}`);
+      (document.querySelector(
+        ".meaning__container"
+      ).innerHTML = `<div class="error">
+    <p id="emoji">🙁</p>
+    <span class="error__heading">No Definition Found</span>
+    <p id="error__text">
+      Sorry pal, we couldn't find definitions for the word you were looking
+      for. Please check the spelling and try again
+    </p>
+  </div>`);
+
+    document.querySelector(".error").appendChild(img);
     document.querySelector(".search__result").innerHTML = ``;
     document.querySelector(".search__result-meaning").innerHTML = ``;
   }
