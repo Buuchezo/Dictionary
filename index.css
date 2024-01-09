@@ -330,6 +330,7 @@ input[type="text"] {
 
 input[type="text"]::placeholder {
   font-weight: 600;
+  opacity: 0.3;
 }
 .search__container:active {
   border: 1px solid var(--color-primary);
